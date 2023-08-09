@@ -1,0 +1,81 @@
+{
+  "lang": {
+    "en": "English",
+    "ua": "Ukrainian"
+  },
+  "buttons": {
+    "ok": "Good",
+    "back": "Go back",
+    "open": "Open",
+    "delete": "Delete",
+    "update": "Update",
+    "log-in": "Log in",
+    "log-out": "Log out",
+    "settings": "Settings"
+  },
+  "loading": "Loading...",
+  "post-actions": {
+    "common": {
+      "name": {
+        "title": "Title of the post:",
+        "placeholder": "Enter the title of the post"
+      }
+    },
+    "create": {
+      "content": {
+        "title": "Content of the post:"
+      },
+      "author": {
+        "title": "Author of the post:",
+        "placeholder": "Enter the author of the post"
+      }
+    }
+  },
+  "creation": {
+    "home-title": "Create a new post",
+    "status": {
+      "created": "The post has been created",
+      "deleted": "The post has been deleted",
+      "updated": "The post has been updated"
+    },
+    "buttons": {
+      "create": "Create a post"
+    }
+  },
+  "home": {
+    "header": {
+      "author": "Author",
+      "title": "Title",
+      "date": "Date",
+      "action": "Action"
+    },
+    "search": "Find post..."
+  },
+  "login": {
+    "home-title": "Log in to the admin panel",
+    "fields": {
+      "email": {
+        "title": "Email:",
+        "placeholder": "Enter your mail"
+      },
+      "password": {
+        "title": "Пароль:",
+        "placeholder": "Enter your password"
+      }
+    },
+    "errors": {
+      "invalid-email": "Invalid email format",
+      "min-length": "Password must be at least {{requiredMinLength}} characters. The current length is {{actualLength}} characters.",
+      "enter-data": "Please enter your details",
+      "session": "The session has ended. Enter the data again"
+    }
+  },
+  "admin": {
+    "navbar": {
+      "links": {
+        "main": "Main",
+        "create": "Create"
+      }
+    }
+  }
+}

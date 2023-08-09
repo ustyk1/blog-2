@@ -3,6 +3,7 @@ import {PostsService} from '../../shared/posts.service';
 import {Post} from '../../shared/interfaces';
 import {Subscription} from 'rxjs';
 import {AlertService} from '../shared/services/alert.service';
+import {TranslateService} from "@ngx-translate/core";
 
 @Component({
   selector: 'app-dashboard-page',
@@ -18,7 +19,8 @@ export class DashboardPageComponent implements OnInit, OnDestroy {
 
   constructor(
     private postsService: PostsService,
-    private alert: AlertService
+    private alert: AlertService,
+    private translateService: TranslateService
     ) {}
 
   ngOnInit() {
@@ -30,7 +32,7 @@ export class DashboardPageComponent implements OnInit, OnDestroy {
   remove(id: string) {
     this.dSub = this.postsService.remove(id).subscribe(() => {
       this.posts = this.posts.filter(post => post.id !== id)
-      this.alert.warning('Пост видалений')
+      this.alert.warning(this.translateService.instant('creation.status.deleted'))
     })
   }
 

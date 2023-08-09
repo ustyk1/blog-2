@@ -7,15 +7,18 @@
 
   <ul *ngIf="auth.isAuthenticated()">
     <li routerLinkActive="active">
-      <a [routerLink]="['/admin', 'dashboard']">Головна</a>
+      <a [routerLink]="['/admin', 'dashboard']">{{'admin.navbar.links.main' | translate}}</a>
     </li>
     <li routerLinkActive="active">
-      <a [routerLink]="['/admin', 'create']">Створити</a>
+      <a [routerLink]="['/admin', 'create']">{{'admin.navbar.links.create' | translate}}</a>
     </li>
     <li>
-      <a [routerLink]="['/admin', 'login']" (click)="logout($event)">Вийти</a>
+      <a [routerLink]="['/admin', 'login']" (click)="logout($event)">{{'buttons.log-out' | translate}}</a>
     </li>
   </ul>
+  <select class="select" (change)="changeLocale()" [(ngModel)]="selectedLanguage">
+    <option *ngFor="let language of languages" [value]="language.id">{{ language.code | translate }}</option>
+  </select>
 </nav>
 
 <div class="container">

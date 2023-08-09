@@ -18,5 +18,4 @@ export class HomePageComponent implements OnInit {
   ngOnInit() {
     this.posts$ = this.postsService.getAll()
   }
-
 }

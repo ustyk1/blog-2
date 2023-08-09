@@ -1,25 +1,25 @@
 <form [formGroup]="form" (ngSubmit)="submit()">
-  <h1>Створення нового поста</h1>
+  <h1>{{'creation.home-title' | translate}}</h1>
 
   <div
     class="form-control"
     [ngClass]="{invalid: form.get('title')?.touched && form.get('title')?.invalid}"
   >
 
-    <label for="title">Назва поста:</label>
+    <label for="title">{{'post-actions.common.name.title' | translate}}</label>
     <input id="title" type="text" formControlName="title">
     <div
       *ngIf="form.get('title')?.touched && form.get('title')?.invalid"
       class="validation"
     >
       <small *ngIf="form.get('title')?.errors?.['required']">
-        Введіть назву поста
+        {{'post-actions.common.name.placeholder' | translate}}
       </small>
     </div>
   </div>
 
   <div class="form-control">
-    <label>Контент поста:</label>
+    <label>{{'post-actions.create.content.title' | translate}}</label>
     <quill-editor formControlName="text"></quill-editor>
   </div>
 
@@ -27,14 +27,14 @@
     class="form-control"
     [ngClass]="{invalid: form.get('author')?.touched && form.get('author')?.invalid}"
   >
-    <label for="author">Автор поста:</label>
+    <label for="author">{{'post-actions.create.author.title' | translate}}</label>
     <input id="author" type="text" formControlName="author">
     <div
       *ngIf="form.get('author')?.touched && form.get('author')?.invalid"
       class="validation"
     >
       <small *ngIf="form.get('author')?.errors?.['required']">
-        Введіть автора поста
+        {{'post-actions.create.author.placeholder' | translate}}
       </small>
     </div>
   </div>
@@ -43,5 +43,5 @@
     type="submit"
     class="btn btn-block btn-dark"
     [disabled]="form.invalid"
-  >Створити пост</button>
+  >{{'creation.buttons.create' | translate}}</button>
 </form>

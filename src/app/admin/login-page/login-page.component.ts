@@ -1,8 +1,9 @@
 import {Component, OnInit} from '@angular/core'
-import {FormControl, FormGroup, Validators} from '@angular/forms';
+import {FormControl, FormGroup, ValidationErrors, Validators} from '@angular/forms';
 import {User} from '../../shared/interfaces';
 import {AuthService} from '../shared/services/auth.service';
 import {ActivatedRoute, Params, Router} from '@angular/router';
+import {TranslateService} from "@ngx-translate/core";
 
 @Component({
   selector: 'app-login-page',
@@ -18,16 +19,17 @@ export class LoginPageComponent implements OnInit {
   constructor(
     public auth: AuthService,
     private router: Router,
-    private route: ActivatedRoute
+    private route: ActivatedRoute,
+    private translateService: TranslateService
   ) {
   }
 
   ngOnInit() {
     this.route.queryParams.subscribe((params: Params) => {
       if (params['loginAgain']) {
-        this.message = 'Будь ласка, введіть дані'
+        this.message = this.translateService.instant('login.errors.enter-data');
       } else if (params['authFailed']) {
-        this.message = 'Сесія закінчилася. Введіть дані знову'
+        this.message = this.translateService.instant('login.errors.session');
       }
     })
 
@@ -42,6 +44,15 @@ export class LoginPageComponent implements OnInit {
       ])
     })
   }
+
+  get passwordErrors() {
+    const errors: ValidationErrors | null | undefined = this.form?.get('password')?.errors?.['minlength'];
+
+    return this.translateService.instant('login.errors.min-length', {
+      requiredMinLength: errors?.['requiredLength'],
+      actualLength: errors?.['actualLength']
+    })
+  };
 
   submit() {
     if (this.form.invalid) {

@@ -1,5 +1,8 @@
 <nav class="navbar main">
   <h1>Angular Blog</h1>
+  <select class="select" (change)="changeLocale()" [(ngModel)]="selectedLanguage">
+    <option *ngFor="let language of languages" [value]="language.id">{{ language.code | translate }}</option>
+  </select>
 </nav>
 
 <div class="container">

@@ -4,14 +4,14 @@
       class="form-control"
       [ngClass]="{invalid: form.get('title')?.touched && form.get('title')?.invalid}"
     >
-      <label for="title">Назва поста:</label>
+      <label for="title">{{'post-actions.common.name.title' | translate}}</label>
       <input id="title" type="text" formControlName="title">
       <div
         *ngIf="form.get('title')?.touched && form.get('title')?.invalid"
         class="validation"
       >
         <small *ngIf="form.get('title')?.errors?.['required']">
-          Введіть назву поста
+          {{'post-action.common.name.placeholder' | translate}}
         </small>
       </div>
     </div>
@@ -24,10 +24,10 @@
       class="btn btn-primary"
       type="submit"
       [disabled]="form.invalid || submitted"
-    >Оновити</button>
+    >{{'buttons.update' | translate}}</button>
   </form>
 </div>
 
 <ng-template #loading>
-  <p class="text-center">Триває завантаження...</p>
+  <p class="text-center">{{'loading' | translate}}</p>
 </ng-template>

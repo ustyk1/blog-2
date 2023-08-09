@@ -13,6 +13,7 @@ import {AuthGuard} from './shared/services/auth.guard';
 import {SearchPipe} from './shared/search.pipe';
 import { AlertComponent } from './shared/components/alert/alert.component';
 import {AlertService} from './shared/services/alert.service';
+import {TranslateModule} from "@ngx-translate/core";
 
 @NgModule({
   declarations: [
@@ -24,23 +25,24 @@ import {AlertService} from './shared/services/alert.service';
     SearchPipe,
     AlertComponent
   ],
-  imports: [
-    CommonModule,
-    FormsModule,
-    ReactiveFormsModule,
-    SharedModule,
-    RouterModule.forChild([
-      {
-        path: '', component: AdminLayoutComponent, children: [
-          {path: '', redirectTo: '/admin/login', pathMatch: 'full'},
-          {path: 'login', component: LoginPageComponent},
-          {path: 'dashboard', component: DashboardPageComponent, canActivate: [AuthGuard]},
-          {path: 'create', component: CreatePageComponent, canActivate: [AuthGuard]},
-          {path: 'post/:id/edit', component: EditPageComponent, canActivate: [AuthGuard]}
-        ]
-      }
-    ])
-  ],
+    imports: [
+        CommonModule,
+        FormsModule,
+        ReactiveFormsModule,
+        SharedModule,
+        RouterModule.forChild([
+            {
+                path: '', component: AdminLayoutComponent, children: [
+                    {path: '', redirectTo: '/admin/login', pathMatch: 'full'},
+                    {path: 'login', component: LoginPageComponent},
+                    {path: 'dashboard', component: DashboardPageComponent, canActivate: [AuthGuard]},
+                    {path: 'create', component: CreatePageComponent, canActivate: [AuthGuard]},
+                    {path: 'post/:id/edit', component: EditPageComponent, canActivate: [AuthGuard]}
+                ]
+            }
+        ]),
+        TranslateModule
+    ],
   exports: [RouterModule],
   providers: [AuthGuard, AlertService]
 })

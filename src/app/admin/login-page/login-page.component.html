@@ -1,5 +1,5 @@
 <form class="card" [formGroup]="form" (ngSubmit)="submit()">
-  <h2>Ввійти в панель адміністратора</h2>
+  <h2>{{'login.home-title' | translate}}</h2>
 
 
   <div class="alert alert-danger" *ngIf="auth.error$ | async as error">
@@ -14,17 +14,17 @@
     class="form-control"
     [ngClass]="{invalid: form.get('email')?.touched && form.get('email')?.invalid}"
   >
-    <label for="email">Email:</label>
+    <label for="email">{{'login.fields.email.title' | translate}}</label>
     <input id="email" type="email" formControlName="email">
     <div
       *ngIf="form.get('email')?.touched && form.get('email')?.invalid"
       class="validation"
     >
       <small *ngIf="form.get('email')?.errors?.['required']">
-        Введіть email
+        {{'login.fields.email.placeholder' | translate}}
       </small>
       <small *ngIf="form.get('email')?.errors?.['email']">
-        Невірний формат email
+        {{'login.errors.invalid-email' | translate}}
       </small>
     </div>
   </div>
@@ -33,21 +33,17 @@
     class="form-control"
     [ngClass]="{invalid: form.get('password')?.touched && form.get('password')?.invalid}"
   >
-    <label for="password">Пароль:</label>
+    <label for="password">{{'login.fields.password.title' | translate}}</label>
     <input id="password" type="password" formControlName="password">
     <div
       class="validation"
       *ngIf="form.get('password')?.touched && form.get('password')?.invalid"
     >
       <small *ngIf="form.get('password')?.errors?.['required']">
-        Введите пароль
+        {{'login.fields.password.placeholder' | translate}}
       </small>
       <small *ngIf="form.get('password')?.errors?.['minlength']">
-        Пароль має бути не менше
-        {{form.get('password')?.errors?.['minlength'].requiredLength}}
-        символів. Наразі довжина становить
-        {{form.get('password')?.errors?.['minlength'].actualLength}}
-        символів.
+        {{passwordErrors}}
       </small>
     </div>
   </div>
@@ -56,5 +52,5 @@
     type="submit"
     class="btn btn-primary"
     [disabled]="form.invalid || submitted"
-  >Ввійти</button>
+  >{{'buttons.log-in' | translate}}</button>
 </form>

@@ -3,6 +3,7 @@ import {FormControl, FormGroup, Validators} from '@angular/forms';
 import {Post} from '../../shared/interfaces';
 import {PostsService} from '../../shared/posts.service';
 import {AlertService} from '../shared/services/alert.service';
+import {TranslateService} from "@ngx-translate/core";
 
 @Component({
   selector: 'app-create-page',
@@ -15,7 +16,8 @@ export class CreatePageComponent implements OnInit {
 
   constructor(
     private postsService: PostsService,
-    private alert: AlertService
+    private alert: AlertService,
+    private translateService: TranslateService
   ) {
   }
 
@@ -41,7 +43,7 @@ export class CreatePageComponent implements OnInit {
 
     this.postsService.create(post).subscribe(() => {
       this.form.reset()
-      this.alert.success('Пост створений')
+      this.alert.success(this.translateService.instant('creation.status.created'))
     })
   }
 

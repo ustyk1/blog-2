@@ -2,8 +2,7 @@
   <div class="post">
     <div class="header">
       <h1>{{ post.title }}</h1>
-
-      <button routerLink="/" class="btn btn-link">На головну</button>
+      <button routerLink="/" class="btn btn-link">{{ 'buttons.back' | translate }}</button>
     </div>
 
     <div class="info">
@@ -18,5 +17,5 @@
 </div>
 
 <ng-template #loading>
-  <p class="text-center">Завантажуємо пост...</p>
+  <p class="text-center">{{'loading' | translate}}</p>
 </ng-template>

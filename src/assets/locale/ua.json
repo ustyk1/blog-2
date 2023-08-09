@@ -1,0 +1,81 @@
+{
+  "lang": {
+    "en": "Англійська",
+    "ua": "Українська"
+  },
+  "buttons": {
+    "ok": "Добре",
+    "back": "Назад",
+    "open": "Відкрити",
+    "delete": "Видалити",
+    "update": "Оновити",
+    "log-in": "Ввійти",
+    "log-out": "Вийти",
+    "settings": "Налаштування"
+  },
+  "loading": "Завантажуємо...",
+  "post-actions": {
+    "common": {
+      "name": {
+        "title": "Назва поста:",
+        "placeholder": "Введіть назву поста"
+      }
+    },
+    "create": {
+      "content": {
+        "title": "Контент поста:"
+      },
+      "author": {
+        "title": "Автор поста:",
+        "placeholder": "Введіть автора поста"
+      }
+    }
+  },
+  "creation": {
+    "home-title": "Створення нового поста",
+    "status": {
+      "created": "Пост створений",
+      "deleted": "Пост видалений",
+      "updated": "Пост оновлениий"
+    },
+    "buttons": {
+      "create": "Створити пост"
+    }
+  },
+  "home": {
+    "header": {
+      "author": "Автор",
+      "title": "Назва",
+      "date": "Дата",
+      "action": "Дія"
+    },
+    "search": "Знайти пост..."
+  },
+  "login": {
+    "home-title": "Ввійти в панель адміністратора",
+    "fields": {
+      "email": {
+        "title": "Пошта:",
+        "placeholder": "Введіть пошту"
+      },
+      "password": {
+        "title": "Пароль:",
+        "placeholder": "Введіть пароль"
+      }
+    },
+    "errors": {
+      "invalid-email": "Невірний формат email",
+      "min-length": "Пароль має бути не менше {{requiredMinLength}} символів. Наразі довжина становить {{actualLength}} символів.",
+      "enter-data": "Будь ласка, введіть дані",
+      "session": "'Сесія закінчилася. Введіть дані знову'"
+    }
+  },
+  "admin": {
+    "navbar": {
+      "links": {
+        "main": "Головна",
+        "create": "Створити"
+      }
+    }
+  }
+}
