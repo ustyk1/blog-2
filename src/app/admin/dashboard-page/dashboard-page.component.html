@@ -17,15 +17,19 @@
       <td>{{ idx + 1 }}</td>
       <td>{{ post.author }}</td>
       <td>{{ post.title }}</td>
-      <td>{{ post.date | date:'medium':undefined:'en' }}</td>
+      <td>
+        <div><small>{{'post-actions.common.createdAt'| translate}} {{post.createdAt | date:'MMM d, y, h:mm:ss a' }}</small></div>
+        <div><small>{{'post-actions.common.updatedAt'| translate}} {{post.updatedAt | date:'MMM d, y, h:mm:ss a' }}</small></div>
+      </td>
+
       <td>
         <button
           class="btn btn-link open"
-          [routerLink]="['/admin', 'post', post.id, 'edit']"
+          [routerLink]="['/admin', 'post', post._id, 'edit']"
         >
           {{'buttons.open' | translate}}
         </button>
-        <a (click)="remove(post.id!)">{{'buttons.delete' | translate}}</a>
+        <a (click)="remove(post._id!)">{{'buttons.delete' | translate}}</a>
       </td>
     </tr>
     </tbody>

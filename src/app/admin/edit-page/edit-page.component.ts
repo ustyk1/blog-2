@@ -38,7 +38,7 @@ export class EditPageComponent implements OnInit, OnDestroy {
       this.post = post
       this.form = new FormGroup({
         title: new FormControl(post.title, Validators.required),
-        text: new FormControl(post.text, Validators.required)
+        description: new FormControl(post.description, Validators.required)
       })
     })
   }
@@ -56,9 +56,9 @@ export class EditPageComponent implements OnInit, OnDestroy {
 
     this.submitted = true
 
-    this.uSub = this.postsService.update({
+    this.uSub = this.postsService.update(this.post._id!,{
       ...this.post,
-      text: this.form.value.text,
+      description: this.form.value.description,
       title: this.form.value.title
     }).subscribe(() => {
       this.submitted = false

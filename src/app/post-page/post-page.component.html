@@ -7,11 +7,12 @@
 
     <div class="info">
       <strong>{{ post.author }}</strong>
-      <small>{{ post.date | date:'medium':undefined:'en' }}</small>
+      <small>{{'post-actions.common.createdAt'| translate}} {{post.createdAt | date:'dd.MM.yyyy HH:mm' }}</small>
+      <small>{{'post-actions.common.updatedAt'| translate}} {{post.updatedAt | date:'dd.MM.yyyy HH:mm' }}</small>
     </div>
 
     <div>
-      <quill-view-html [content]="post.text"></quill-view-html>
+      <quill-view-html [content]="post.description"></quill-view-html>
     </div>
   </div>
 </div>

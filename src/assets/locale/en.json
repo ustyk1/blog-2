@@ -19,7 +19,9 @@
       "name": {
         "title": "Title of the post:",
         "placeholder": "Enter the title of the post"
-      }
+      },
+      "createdAt": "Created at: ",
+      "updatedAt": "Updated at: "
     },
     "create": {
       "content": {
@@ -59,7 +61,7 @@
         "placeholder": "Enter your mail"
       },
       "password": {
-        "title": "Пароль:",
+        "title": "Password:",
         "placeholder": "Enter your password"
       }
     },
@@ -67,7 +69,9 @@
       "invalid-email": "Invalid email format",
       "min-length": "Password must be at least {{requiredMinLength}} characters. The current length is {{actualLength}} characters.",
       "enter-data": "Please enter your details",
-      "session": "The session has ended. Enter the data again"
+      "session": "The session has ended. Enter the data again",
+      "invalid-data": "Invalid login or password",
+      "user-not-found": "User not found"
     }
   },
   "admin": {

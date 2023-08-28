@@ -27,9 +27,9 @@ export class LoginPageComponent implements OnInit {
   ngOnInit() {
     this.route.queryParams.subscribe((params: Params) => {
       if (params['loginAgain']) {
-        this.message = this.translateService.instant('login.errors.enter-data');
+        this.message = 'login.errors.enter-data';
       } else if (params['authFailed']) {
-        this.message = this.translateService.instant('login.errors.session');
+        this.message = 'login.errors.session';
       }
     })
 

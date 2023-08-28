@@ -1,7 +1,7 @@
 import {Injectable} from '@angular/core';
 import {HttpClient} from '@angular/common/http';
 import {Observable} from 'rxjs';
-import {FbCreateResponse, Post} from './interfaces';
+import {Post} from './interfaces';
 import {environment} from '../../environments/environment';
 import {map} from 'rxjs/operators';
 
@@ -10,45 +10,34 @@ export class PostsService {
   constructor(private http: HttpClient) {}
 
   create(post: Post): Observable<Post> {
-    return this.http.post(`${environment.fbDbUrl}/posts.json`, post)
+    return this.http.post(`http://localhost:5000/post`, post)
       .pipe(
         map((response: any) => {
           return {
             ...post,
-            id: response.name,
-            date: new Date(post.date)
+            id: response.name
           }
         }))
   }
 
   getAll(): Observable<Post[]> {
-    return this.http.get(`${environment.fbDbUrl}/posts.json`)
-      .pipe(map((response: {[key: string]: any}) => {
-        return Object
-          .keys(response)
-          .map(key => ({
-            ...response[key],
-            id: key,
-            date: new Date(response[key].date)
-          }))
-      }))
+    return this.http.get<Post[]>(`http://localhost:5000/post`);
   }
 
   getById(id: string): Observable<Post> {
-    return this.http.get<Post>(`${environment.fbDbUrl}/posts/${id}.json`)
+    return this.http.get<Post>(`http://localhost:5000/post/${id}`)
       .pipe(map((post: Post) => {
         return {
-          ...post, id,
-          date: new Date(post.date)
+          ...post, id
         }
       }))
   }
 
   remove(id: string): Observable<void> {
-    return this.http.delete<void>(`${environment.fbDbUrl}/posts/${id}.json`)
+    return this.http.delete<void>(`http://localhost:5000/post/${id}`)
   }
 
-  update(post: Post): Observable<Post> {
-    return this.http.patch<Post>(`${environment.fbDbUrl}/posts/${post.id}.json`, post)
+  update(id: string, post: Post): Observable<Post> {
+    return this.http.patch<Post>(`http://localhost:5000/post/${id}`, post)
   }
 }

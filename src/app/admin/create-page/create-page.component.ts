@@ -24,7 +24,7 @@ export class CreatePageComponent implements OnInit {
   ngOnInit() {
     this.form = new FormGroup({
       title: new FormControl(null, Validators.required),
-      text: new FormControl(null, Validators.required),
+      description: new FormControl(null, Validators.required),
       author: new FormControl(null, Validators.required)
     })
   }
@@ -37,8 +37,7 @@ export class CreatePageComponent implements OnInit {
     const post: Post = {
       title: this.form.value.title,
       author: this.form.value.author,
-      text: this.form.value.text,
-      date: new Date()
+      description: this.form.value.description
     }
 
     this.postsService.create(post).subscribe(() => {

@@ -3,11 +3,11 @@
 
 
   <div class="alert alert-danger" *ngIf="auth.error$ | async as error">
-    {{ error }}
+    {{ error | translate }}
   </div>
 
   <div class="alert alert-info" *ngIf="message">
-    {{ message }}
+    {{ message | translate }}
   </div>
 
   <div
